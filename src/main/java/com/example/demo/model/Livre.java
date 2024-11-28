@@ -2,9 +2,15 @@ package com.example.demo.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "Livres")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Livre {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,35 +21,4 @@ public class Livre {
 
         @Column(nullable = false)
         private String description;
-
-        //public Livre() {}
-
-        /*public Livre(String title, String description) {
-            this.title = title;
-            this.description = description;
-        }*/
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
 }
