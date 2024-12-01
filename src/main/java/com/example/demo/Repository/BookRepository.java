@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.swing.*;
 import java.util.List;
 
 
@@ -13,6 +14,9 @@ public interface BookRepository extends JpaRepository<Livre, Integer> {
 
     List<Livre> findByTitleContainsIgnoreCase(String title);
 
-    @Query("SELECT l FROM Livre l WHERE lower(l.title) LIKE lower(concat('%',:keyword,'%')) or lower(l.description) LIKE lower(concat('%',:keyword,'%'))")
+    @Query(value = "SELECT * FROM Livres WHERE lower(title) LIKE lower(concat('%',:keyword,'%')) OR lower(description) LIKE lower(concat('%',:keyword,'%'))", nativeQuery = true)
     List<Livre> findBooksByKeyword(@Param("keyword") String keyword);
+
 }
+
+

@@ -1,0 +1,22 @@
+spring:
+
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/library_db
+#    username: postgres
+#    password: 2012
+
+  jpa:
+    hibernate:
+    ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+
+
+server:
+  port: 8080
+
+
+
