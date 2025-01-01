@@ -1,22 +1,24 @@
 spring:
+  elasticsearch:
+    uris: http://localhost:9200
+    username: elastic
+    password: 123456
 
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/library_db
-#    username: postgres
-#    password: 2012
+  application:
+    name: demo
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/library_db
+    username: postgres
+    password: 2012
 
   jpa:
     hibernate:
-    ddl-auto: update
-    database-platform: org.hibernate.dialect.H2Dialect
-
-  h2:
-    console:
-      enabled: true
-
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
 server:
   port: 8080
-
-
-

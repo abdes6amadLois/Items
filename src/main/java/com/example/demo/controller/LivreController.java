@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.Services.LibraryService;
 import com.example.demo.model.Livre;
+import com.example.demo.model.LivreE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/Livres")
 public class LivreController {
+
     @Autowired
     private LibraryService libraryService;
 
@@ -47,4 +49,14 @@ public class LivreController {
     public void deleteLivre(@PathVariable int id) {
         libraryService.deleteLivre(id);
     }
+
+    //elasticsearch
+
+
+    @GetMapping("/searchE")
+    public List<LivreE> getLivreEBytitle(@RequestParam String title, @RequestParam int page, @RequestParam int size) {
+        return libraryService.serchBookByTitleE(title,page,size);
+    }
+
+
 }

@@ -1,4 +1,9 @@
 spring:
+  elasticsearch:
+    uris: http://localhost:9200
+    username: elastic
+    password: 123456
+
   application:
     name: demo
 
